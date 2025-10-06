@@ -27,3 +27,24 @@
 }
 
 
+/* estrela maior central */
+.estrela1 {
+  position: absolute;
+  bottom: 710px;               /* Posicionado fora da caixa para dar estilo */
+  right: -275px;
+  width: 110px;
+}
+/* estrela menor esquerda */
+.estrela2 {
+  position: absolute;
+  bottom: 747px;               /* Posicionado fora da caixa para dar estilo */
+  right: -180px;
+  width: 60px;
+}
+/* estrela menor direita */
+.estrela3 {
+  position: absolute;
+  bottom: 660px;               /* Posicionado fora da caixa para dar estilo */
+  right: -270px;
+  width: 60px;
+}
