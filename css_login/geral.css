@@ -175,7 +175,7 @@
   }
 
 .foguete, .esquilo, .logo {
-  pointer-events: none; /* impede que bloqueiem os cliques/digitação */
+  pointer-events: none; /* impede que bloqueiem os cliques/digitação :) */
 }
 
 /* Espaço reservado para mensagens flash */
