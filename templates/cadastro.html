@@ -4,29 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projack Impulse - Cadastro</title>
+
+  <!-- Fontes externas -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap">
   <link rel="stylesheet" href="https://use.typekit.net/xoh7gtf.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quantico&display=swap">  
-  
-  <link rel="stylesheet" href="css/css_cadastro/geral.css">
-  <link rel="stylesheet" href="css/css_cadastro/lado_esquerdo.css">
-  <link rel="stylesheet" href="css/css_cadastro/lado_direito.css">
 
-
-
-
+  <!-- CSS local -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/css_cadastro/geral.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/css_cadastro/lado_esquerdo.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/css_cadastro/lado_direito.css') }}">
 </head>
 <body>
 
-
   <div class="tela">
-    
     <div class="conteudo">
 
       <!-- Painel esquerdo -->
       <div class="painel-esquerdo">
         <!-- Logo no topo -->
-        <img src="imagens/imagens_cadastro/Logo.png" alt="Logo Projack Impulse" class="logo" />
+        <img src="{{ url_for('static', filename='imagens/imagens_cadastro/Logo.png') }}" alt="Logo Projack Impulse" class="logo" />
 
         <!-- Texto central -->
         <div class="painel-esquerdo-texto">
@@ -35,47 +32,41 @@
         </div>
 
         <!-- Botão voltar para login -->
-        <button class="botao-voltar">Voltar para Login</button>
+        <a href="{{ url_for('login') }}" class="botao-voltar">Voltar para Login</a>
 
-          <!-- Foguete sobreposto no canto inferior esquerdo -->
-        <img src="imagens/imagens_cadastro/foguete.png" alt="Foguete" class="foguete" />
-
+        <!-- Foguete sobreposto no canto inferior esquerdo -->
+        <img src="{{ url_for('static', filename='imagens/imagens_cadastro/foguete.png') }}" alt="Foguete" class="foguete" />
       </div>
-
-
-
-
 
       <!-- Painel direito -->
       <div class="painel-direito">
         <!-- Imagem sobreposta -->
-        <img src="imagens/imagens_cadastro/estrelas.png" alt="Decoração" class="imagem-sobreposta" />
+        <img src="{{ url_for('static', filename='imagens/imagens_cadastro/estrelas.png') }}" alt="Decoração" class="imagem-sobreposta" />
 
         <h1>Cadastre-se</h1>
-        <form>
+        <form method="POST" action="{{ url_for('cadastro') }}">
           <div class="form-campos">
             <div class="campo">
-              <img src="imagens/imagens_cadastro/pessoa.png" alt="Ícone Nome" class="icone" />
+              <img src="{{ url_for('static', filename='imagens/imagens_cadastro/pessoa.png') }}" alt="Ícone Nome" class="icone" />
               <input type="text" placeholder="Nome" name="nome" required />
             </div>
 
             <div class="campo">
-              <img src="imagens/imagens_cadastro/telefone.png" alt="Ícone Telefone" class="icone" />
+              <img src="{{ url_for('static', filename='imagens/imagens_cadastro/telefone.png') }}" alt="Ícone Telefone" class="icone" />
               <input type="tel" placeholder="Telefone" name="telefone" required />
             </div>
 
             <div class="campo">
-              <img src="imagens/imagens_cadastro/envelope.png" alt="Ícone E-mail" class="icone" />
+              <img src="{{ url_for('static', filename='imagens/imagens_cadastro/envelope.png') }}" alt="Ícone E-mail" class="icone" />
               <input type="email" placeholder="E-mail" name="email" required />
             </div>
 
             <div class="campo">
-              <img src="imagens/imagens_cadastro/cadeado.png" alt="Ícone Senha" class="icone" />
+              <img src="{{ url_for('static', filename='imagens/imagens_cadastro/cadeado.png') }}" alt="Ícone Senha" class="icone" />
               <input type="password" placeholder="Senha" name="senha" required />
               <span class="toggle-senha">👁️</span>
             </div>
           </div>
-
 
           <div class="grupo-radio">
             <label>
@@ -92,18 +83,14 @@
         </form>
       </div>
 
-
-
     </div>
   </div>
 
-
   <script>
-        document.querySelectorAll('.campo').forEach(campo => {
+    document.querySelectorAll('.campo').forEach(campo => {
       const toggle = campo.querySelector('.toggle-senha');
       const input = campo.querySelector('input[type="password"]');
 
-      // só adiciona o evento se o campo tiver o ícone de toggle
       if (toggle && input) {
         toggle.addEventListener('click', () => {
           if (input.type === 'password') {
@@ -117,8 +104,6 @@
       }
     });
   </script>
-
-
 
 </body>
 </html>
