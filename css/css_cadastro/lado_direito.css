@@ -1,176 +1,164 @@
 /* =======================
    PAINEL DIREITO (formulário)
    ======================= */
-
 .painel-direito {
-  width: 60%;                  /* Ocupa 60% da largura do conteúdo */
-  background-color: #ffffff;   /* Fundo branco */
-  border-radius: 0 20px 20px 0;/* Arredonda somente o lado direito */
-  padding: 40px;
-  position: relative;
+  width: 65%;                     /* Ocupa 65% do conteúdo principal em telas grandes */
+  max-width: 100%;                /* Limite máximo para não ultrapassar a tela */
+  background-color: #ffffff;      /* Fundo branco */
+  border-radius: 0 2rem 2rem 0;   /* Arredonda apenas os cantos do lado direito */
   
+  display: flex;                  /* Flexbox para organizar os elementos */
+  flex-direction: column;         /* Elementos em coluna */
+  justify-content: center;        /* Centraliza verticalmente */
+  align-items: center;            /* Centraliza horizontalmente */
+  text-align: center;             /* Centraliza textos */
+  position: relative;             /* Necessário para posicionar imagem sobreposta e campos */
+  padding: 2rem;                  /* Espaçamento interno */
+  box-sizing: border-box;         /* Garante que padding não quebre o layout */
 }
 
-/* Título do formulário */
+/* =======================
+   IMAGEM SOBREPOSTA
+   ======================= */
+.imagem-sobreposta {
+  position: absolute;             /* Absoluta dentro do painel */
+  top: 0;                         /* Topo do painel */
+  right: 0;                       /* Canto direito */
+  width: 12rem;                   /* Largura da imagem */
+  max-width: 25%;                 /* Responsivo: nunca maior que 25% do painel */
+  height: auto;                   /* Mantém proporção */
+  z-index: 20;                    /* Sobrepõe os demais elementos */
+  transform: translate(25%, -25%); /* Opcional: desloca para fora do canto */
+}
+
+/* =======================
+   TÍTULO DO FORMULÁRIO
+   ======================= */
 .painel-direito h1 {
-  font-family: 'Poetsen One', cursive; /* define a fonte principal como Poetsen One; se não carregar, usa uma fonte cursiva como alternativa */
-  font-weight: 400;                    /* peso */
-  font-size: 55px;                     /* tamanho */
-  line-height: 43px;                   /* altura da linha (espaço vertical entre as linhas de texto) */
-  color: #23433E;                    /* cor do texto*/
-  text-align: center;                  /* centraliza o texto dentro do elemento */
-  margin-top: 30px;                    /* cria um espaço de 30px abaixo do título, separando-o dos próximos elementos */
-  margin-bottom: 30px;                 /* cria um espaço de 30px abaixo do título, separando-o dos próximos elementos */
+  font-family: 'Poetsen One', cursive;
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 4rem); /* Responsivo: mínimo 2rem, máximo 4rem */
+  line-height: 1.2em;
+  color: #23433E;
+  margin-bottom: 1rem;
 }
 
+/* =======================
+   FORMULÁRIO E CAMPOS
+   ======================= */
+.form-campos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;                        /* Espaçamento entre os campos */
+  width: 100%;                       /* Ocupa toda a largura do painel */
+  max-width: 40rem;                  /* Limite máximo para telas grandes */
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 
-
-
-
-
-
-
-
-
-/* Campos de entrada */
+/* =======================
+   CAMPOS DE ENTRADA
+   ======================= */
 .campo {
-  position: absolute; /* posiciona cada campo em coordenadas fixas (não recomendado para layouts responsivos) */
-  width: 740px;       /* largura do campo */
-  height: 65px;       /* altura do campo */
-  background: #B7D2BD; /* cor de fundo */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); /* sombra para dar profundidade */
-  border-radius: 10px; /* cantos arredondados */
-  display: flex;       /* permite alinhar ícone e input horizontalmente */
-  align-items: center; /* centraliza verticalmente o conteúdo dentro do campo */
-  padding-left: 90px;  /* espaço interno à esquerda para o ícone e texto */
+  width: 100%;
+  height: clamp(3rem, 5vw, 4rem);   /* Altura responsiva */
+  background: #B7D2BD;
+  box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.25);
+  border-radius: 0.625rem;
+  display: flex;
+  align-items: center;
+  padding-left: 4.5rem;             /* Espaço para ícone */
+  position: relative;
+  box-sizing: border-box;
 }
 
-/* Ícones nos inputs */
+/* ÍCONES DENTRO DOS CAMPOS */
 .campo .icone {
-  position: absolute; /* posiciona o ícone dentro do campo usando coordenadas fixas */
-  left: 15px;         /* distância da borda esquerda do campo */
-  width: 45px;        /* largura do ícone */
-  height: 45px;       /* altura do ícone */
+  position: absolute;
+  left: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
-/* Input em si */
+/* INPUTS */
 .campo input {
-  flex: 1;                      /* ocupa todo o espaço restante do campo */
-  border: none;                  /* remove a borda padrão do input */
-  background: transparent;       /* deixa o fundo do input transparente */
-  font-size: 30px;               /* tamanho da fonte */
-
-  color: #003223;                /* cor do texto */
-  outline: none;                 /* remove o contorno ao focar */
-  font-family: 'Quantico', sans-serif; /* aqui define a fonte Quantico */
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: clamp(1rem, 1.5vw, 1.5rem); /* Fonte responsiva */
+  color: #003223;
+  outline: none;
+  font-family: 'Quantico', sans-serif;
 }
 
 .campo input::placeholder {
-  color: #003223;           /* cor que você quer para o placeholder */
-  font-family: 'Quantico', sans-serif; /* mantém a fonte do input */
-  opacity: 0.8;             /* garante que a cor fique igual em todos os navegadores */
+  color: #003223;
+  opacity: 0.8;
 }
 
-/* Preenchimento automático (autofill) */
-/* Autofill Chrome, Edge, Safari */
+/* Autofill */
 .campo input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #B7D2BD inset; /* define a cor de fundo do input */
-  -webkit-text-fill-color: #003223;                 /* cor do texto */
-  font-family: 'Quantico', sans-serif;             /* mantém a fonte */
+  -webkit-box-shadow: 0 0 0 1000px #B7D2BD inset;
+  -webkit-text-fill-color: #003223;
 }
-
-/* Autofill Firefox */
 .campo input:-moz-autofill {
-  box-shadow: 0 0 0px 1000px #B7D2BD inset;        /* define a cor de fundo do input */
-  -moz-text-fill-color: #003223;                   /* cor do texto */
-  font-family: 'Quantico', sans-serif;             /* mantém a fonte */
+  box-shadow: 0 0 0 1000px #B7D2BD inset;
+  -moz-text-fill-color: #003223;
 }
 
+/* TOGGLE SENHA */
 .campo .toggle-senha {
   position: absolute;
-  right: 15px;         /* distância da borda direita */
-  cursor: pointer;      /* muda o cursor para indicar clique */
-  font-size: 20px;
-  user-select: none;    /* evita seleção do ícone */
+  right: 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  user-select: none;
 }
-
-
-/* Posições individuais dos campos */
-.campo:nth-of-type(1) { left: 80px; top: 175px; } /* campo 1 posicionado manualmente */
-.campo:nth-of-type(2) { left: 80px; top: 275px; } /* campo 2 posicionado manualmente */
-.campo:nth-of-type(3) { left: 80px; top: 375px; } /* campo 3 posicionado manualmente */
-.campo:nth-of-type(4) { left: 80px; top: 475px; } /* campo 4 posicionado manualmente */
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* =======================
-   Grupo de Radio Buttons
-   Idealizador / Colaborador
+   GRUPO DE RADIO BUTTONS
    ======================= */
-
 .grupo-radio {
-  position: absolute;           /* posiciona o grupo em coordenadas fixas */
-  left: 100px;                  /* distância da borda esquerda da tela/conteúdo */
-  top: 580px;                   /* distância do topo da tela/conteúdo */
-  display: flex;                /* organiza os itens horizontalmente */
-  gap: 250px;                    /* espaço entre os radios */
-  font-family: 'Quantico', sans-serif; /* define a fonte dos labels */
-  font-size: 35px;              /* tamanho do texto dos labels */
-  color: #000000;               /* cor do texto */
-  align-items: center;          /* alinha verticalmente o texto e o input */
-}
-
-/* Estilização do input radio */
-.grupo-radio input {
-  margin-right: 8px;            /* espaço entre o botão radio e o texto */
-  accent-color: #003221;        /* cor do botão radio (suporta navegadores modernos) */
-  width: 25px;                  /* tamanho personalizado do radio (opcional) */
-  height: 25px;                 /* altura do radio */
-  cursor: pointer;              /* cursor de mão ao passar em cima */
-}
-
-/* Estilo do label ao redor do radio */
-.grupo-radio label {
-  display: flex;                /* organiza o radio e o texto em linha */
-  align-items: center;          /* centraliza verticalmente */
-  cursor: pointer;              /* cursor de mão ao passar em cima do label */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Botão */
-button[type="submit"] {
-  position: absolute;
-  width: 180px;
-  height: 45px;
-  left: 40%;
-  top: 660px;
-  background: #003221;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 90px;
-  border: none;
-  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 5vw, 10rem);     /* Espaçamento responsivo */
   font-family: 'Quantico', sans-serif;
-  font-size: 28px;
+  font-size: clamp(1rem, 2vw, 2rem); /* Fonte responsiva */
+  color: #000;
+  margin-top: 1rem;
+}
+
+.grupo-radio input {
+  margin-right: 0.5rem;
+  accent-color: #003221;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.grupo-radio label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* =======================
+   BOTÃO DE ENVIO
+   ======================= */
+button[type="submit"] {
+  width: clamp(30%, 20vw, 40%);    /* Largura responsiva entre 30% e 40% */
+  max-width: 20rem;
+  padding: 0.7rem 0;
+  margin-top: 2rem;
+  background: #003221;
+  box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.25);
+  border-radius: 2rem;
+  border: none;
+  color: #fff;
+  font-family: 'Quantico', sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.75rem); /* Fonte responsiva */
   cursor: pointer;
   transition: 0.3s;
 }
@@ -179,3 +167,34 @@ button[type="submit"]:hover {
   background: #004d30;
 }
 
+/* =======================
+   RESPONSIVIDADE MÓVEL
+   ======================= */
+@media (max-width: 900px) {
+  .painel-direito {
+    width: 100%;             /* Painel ocupa toda a largura */
+    padding: 1.5rem;
+  }
+
+  .form-campos {
+    max-width: 100%;         /* Formulário ocupa todo o espaço */
+  }
+
+  .campo {
+    padding-left: 3rem;      /* Ajuste interno menor */
+  }
+
+  .grupo-radio {
+    flex-direction: column;  /* Radios empilhados */
+    gap: 1.5rem;
+  }
+
+  button[type="submit"] {
+    width: 70%;              /* Botão ocupa mais espaço em mobile */
+  }
+
+  .imagem-sobreposta {
+    width: 8rem;             /* Ajusta imagem para telas menores */
+    transform: translate(20%, -20%);
+  }
+}
