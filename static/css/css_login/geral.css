@@ -12,6 +12,7 @@
     align-items: center;
     background: #003221;
     font-family: 'Pixelify Sans', sans-serif;
+    overflow: hidden;
   }
   
   /* Container geral */
