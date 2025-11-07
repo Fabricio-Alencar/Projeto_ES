@@ -21,3 +21,11 @@ def cadastro():
 @app.route('/projetos/<int:id_usuario>')
 def projetos(id_usuario):
     return render_template('projetos.html', id_usuario=id_usuario)
+<<<<<<< HEAD
+=======
+
+
+if __name__ == "__main__":
+    print("🚀 Servidor Flask rodando em modo DEBUG...")
+    app.run(debug=True)
+>>>>>>> 27d8aaa (arrumei o projetos)

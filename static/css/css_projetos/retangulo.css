@@ -20,7 +20,11 @@
 
   box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* sombra suave */
   padding: 10px;       /* espaço interno */
+<<<<<<< HEAD
   z-index: 10;         /* garante que fique acima de outros elementos */
+=======
+  z-index: 999;         /* garante que fique acima de outros elementos */
+>>>>>>> 27d8aaa (arrumei o projetos)
 
   display: flex;             /* ativa flexbox */
   flex-direction: column;    /* organiza itens verticalmente */
@@ -118,4 +122,8 @@
    ==================== */
 .info-item.link-perfil:hover {
   text-decoration: underline; /* sublinha o texto ao passar o mouse */
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 27d8aaa (arrumei o projetos)
