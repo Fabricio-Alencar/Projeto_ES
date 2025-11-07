@@ -16,3 +16,8 @@ def login():
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')
+    
+# 🔹 Página de projetos (rendenização principal)
+@app.route('/projetos/<int:id_usuario>')
+def projetos(id_usuario):
+    return render_template('projetos.html', id_usuario=id_usuario)
